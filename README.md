@@ -1,4 +1,4 @@
-# project-template
+# ציוני דרך- Milestones
 
 A template repository with wiki for a team project at JCE's software engineering course (replace with the mission of your project).
 
