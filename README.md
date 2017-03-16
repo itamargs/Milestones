@@ -2,7 +2,8 @@
 
 "Zionei-Derech" association, is a social group who works for creating a more
 involving and active society by training and bonding groups of students in Israel.
-Thus groups are committed to the values of pluralism, Judaism and democracy/
+Thus groups are committed to the values of pluralism, Judaism and democracy.
+
 We believe that the key to a sustainable and significant change in the Israeli community
 is lies on the activity of young groups who operates in the social and public arena
 for addressing the difficulties and challenges facing society today.
