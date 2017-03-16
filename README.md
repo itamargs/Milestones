@@ -17,7 +17,8 @@ for addressing the difficulties and challenges facing society today.
 We're trying to use the best tools and practices in order to produce a quality enginneered product.
 (replace 'jce-il/project-template' with your 'username/repo' and register to the relevant services)
 
-|Category|Status||---|---|
+|Category|Status|
+|---|---|
 | Version Control System| git & github |
 | Recommended IDE | [VSCode](https://code.visualstudio.com) |
 | Group Chat | [![Join the chat at https://gitter.im/itamargs/Milestones](https://badges.gitter.im/itamargs/Milestones.svg)](https://gitter.im/jce-il/Milestones) |
