@@ -1,6 +1,6 @@
 # Milestones - ציוני דרך
 
-strengthening Israeli society
+"Strengthening Israeli society"
 
 "Zionei-Derech" association, is a social group who works for creating a more
 involving and active society by training and bonding groups of students in Israel.
