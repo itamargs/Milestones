@@ -4,7 +4,7 @@ A template repository with wiki for a team project at JCE's software engineering
 
 (See also:rRecommended [checklist](https://github.com/ddbeck/readme-checklist/blob/master/checklist.md) for a README) 
 
-![project logo (this one for is taken from basecamp - a project management service)](https://www.google.co.il/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjx9bjoxNrSAhXILhoKHZwOAcIQjRwIBw&url=http%3A%2F%2Fwww.zioneiderech.org.il%2Fabout2&psig=AFQjCNHJhajObdWC6kMDyHGpWyKgW9ISZQ&ust=1489736967075821)
+![project logo (this one for is taken from basecamp - a project management service)](http://static.wixstatic.com/media/60dda4_5ff0ca483b8d4fe39a47d333055501fd.png_srz_304_271_85_22_0.50_1.20_0.00_png_srz)
 
 ## Tools & Practices
 We're trying to use the best tools and practices in order to produce a quality enginneered product.
