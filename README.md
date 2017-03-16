@@ -35,9 +35,7 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Documnetation | [![Inline docs](http://inch-ci.org/github/jce-il/project-template.svg?branch=master)](http://inch-ci.org/github/jce-il/project-template) |
 | Project Course Status | ... |
 
-## בקרו באתר (הזמני) שלנו(https://my-app-b2c23.firebaseapp.com/)
-- Alright, currently only a landing page...
-
+## Visit our (temporray) application (https://my-app-b2c23.firebaseapp.com/)
 
 ## Disclaimer
 This project is developed as part of the requirements for a [software engineering course](https://github.com/jce-il/se-class/wiki) at the software engineering department - [Azrieli College of Engineering](http://www.jce.ac.il/), Jerusalem, Israel.
