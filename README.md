@@ -1,9 +1,12 @@
 # ציוני דרך- Milestones
 
-עמותת ציוני דרך הינה תנועה חברתית הפועלת ליצירת חברה אזרחית פעילה ומעורבת, על ידי גיבוש והכשרה
-של קבוצות סטודנטים בישראל, המחויבת לערכי הפלורליזם, היהדות והדמוקרטיה. אנו מאמינים כי המפתח
-לשינוי משמעותי ובר-קיימא בחברה הישראלית טמון בפעילות של קהילות צעירים, אשר פועלות בזירה
-החברתית-ציבורית על מנת לתת מענה לקשיים והאתגרים העומדים בפני החברה הישראלית כיום .
+"Zionei-Derech" association, is a social group who works for creating a more
+involving and active society by training and bonding groups of students in Israel.
+Thus groups are committed to the values of pluralism, Judaism and democracy/
+We believe that the key to a sustainable and significant change in the Israeli community
+is lies on the activity of young groups who operates in the social and public arena
+for addressing the difficulties and challenges facing society today.
+
 
 ![project logo (this one for is taken from basecamp - a project management service)](http://static.wixstatic.com/media/60dda4_5ff0ca483b8d4fe39a47d333055501fd.png_srz_304_271_85_22_0.50_1.20_0.00_png_srz)
 
