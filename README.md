@@ -1,4 +1,4 @@
-# ציוני דרך- Milestones
+# Milestones - ציוני דרך
 
 strengthening Israeli society
 
