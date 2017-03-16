@@ -31,7 +31,7 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Documnetation | [![Inline docs](http://inch-ci.org/github/jce-il/project-template.svg?branch=master)](http://inch-ci.org/github/jce-il/project-template) |
 | Project Course Status | ... |
 
-## Please visit our [live application](https://demo.reactstarterkit.com/)
+## בקרו באתר (הזמני) שלנו(https://my-app-b2c23.firebaseapp.com/)
 - Alright, currently only a landing page...
 
 
