@@ -30,7 +30,7 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Code Style | [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/jce-il/project-template) |
 | Current Release | [![Current Version](https://img.shields.io/github/release/jce-il/project-template.svg?style=flat)](https://github.com/jce-il/project-template/releases) |
 | Issues | [![GitHub issues](https://img.shields.io/github/issues/itamargs/Milestones.svg?style=flat)](https://github.com/itamargs/Milestones/issues) |
-| Project Management Board| [here](https://github.com/jce-il/project-template/projects/1) |
+| Project Management Board| [here](https://github.com/itamargs/Milestones/projects/1) |
 | Contributors | [![GitHub contributors](https://img.shields.io/github/contributors/itamargs/Milestones.svg)](https://github.com/itamargs/Milestones/graphs/contributors)|
 | Deployment | [![Heroku](http://heroku-badge.herokuapp.com/?app=my-app&style=flat&svg=1&root=index.html)] |
 | Security | [![Known Vulnerabilities](https://snyk.io/test/github/jce-il/project-template/badge.svg)](https://snyk.io/test/github/jce-il/project-template) |
