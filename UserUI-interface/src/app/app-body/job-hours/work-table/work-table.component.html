@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>סה"כ שעות</th>
+        <th>שעת סיום</th>
+        <th>שעת התחלה</th>
+        <th>תאריך</th>
+        <th>מעסיק</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let day of days; let i = index">
+        <th>
+          <a class="red-text" href="#">
+          מחק <span class="glyphicon glyphicon-remove"></span>
+          </a> |
+          <a href="#">
+            <span class="glyphicon glyphicon-pencil"></span> ערוך
+          </a>
+        </th>
+        <th>{{day.totalHours}}</th>
+        <th>{{day.endHour}}</th>
+        <th>{{day.startHour}}</th>
+        <th>{{day.date}}</th>
+        <th>{{day.employer}}</th>
+        <th>{{i}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

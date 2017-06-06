@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="text-center panel-title">התחבר</div>
+      </div>
+      <div class="panel-body">
+        <div class="col-sm-8 col-sm-offset-2">
+          <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input ngModel name="user"
+              class="form-control" id="username" 
+              type="text"  placeholder="משתמש"
+              style="text-align: right"
+              required
+              email
+              #email="ngModel" required>
+            </div>
+            <br>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input ngModel name="password"
+              type="password" 
+              class="form-control" 
+              id="password" 
+              style="text-align: right"
+              placeholder="סיסמה" required>
+            </div>
+            <br>          
+            <button class="btn btn-primary pull-left" type="submit">התחבר <i class="glyphicon glyphicon-log-in"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
