@@ -10,7 +10,6 @@ import { AppBodyComponent } from './app-body/app-body.component';
 import { JwtHelper } from './JwtHelper.service';
 import { AccountService } from './accountService.service';
 import { JobHoursComponent } from './app-body/job-hours/job-hours.component';
-import { NavBarComponent } from './app-body/nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { WorkTableComponent } from './app-body/job-hours/work-table/work-table.component';
 import { MessageComponent } from './app-body/messages-tab/message/message.component';
@@ -22,7 +21,6 @@ import { MessagesTabComponent } from './app-body/messages-tab/messages-tab.compo
     LoginComponent,
     AppBodyComponent,
     JobHoursComponent,
-    NavBarComponent,
     HeaderComponent,
     WorkTableComponent,
     MessageComponent,
