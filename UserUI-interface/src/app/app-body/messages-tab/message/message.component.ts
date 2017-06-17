@@ -16,4 +16,9 @@ export class MessageComponent implements OnInit {
   openMsg(){
     this.clicked = !this.clicked;
   }
+  delete(){
+    if(confirm("האם אתה בטוח שהנחה רוצה למחוק הודעה זו?")){
+        this.msg = null;
+    }
+  }
 }
