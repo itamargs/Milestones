@@ -1,0 +1,36 @@
+{
+  "admin" : {
+    "uid" : "Vp6M2pTXV9hobgFmx1BaCROkbtN2"
+  },
+  "users" : {
+    "-KmwEJBbEcSjlTJ3BOD6" : {
+      "email" : "aviel@aviel.com",
+      "firstName" : "אביאל",
+      "hours" : [ {
+        "date" : "none",
+        "day" : "none",
+        "employer" : "none",
+        "endHour" : "none",
+        "startHour" : "none",
+        "totalDays" : 0,
+        "totalHours" : 0
+      } ],
+      "id" : 123456,
+      "key" : "-KmwEJBbEcSjlTJ3BOD6",
+      "lastName" : "שמריהו",
+      "password" : 123456,
+      "type" : 1
+    },
+    "hours" : {
+      "-Kmw5Z3a53sIdTAMniSd" : {
+        "date" : "1/1/12",
+        "day" : "אfffffffffffffff",
+        "employer" : "משה",
+        "endHour" : "17:00",
+        "startHour" : "7:00",
+        "totalDays" : 1,
+        "totalHours" : 10
+      }
+    }
+  }
+}

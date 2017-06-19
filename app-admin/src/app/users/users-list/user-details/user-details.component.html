@@ -1,0 +1,52 @@
+<table class="table" style="border: 2px solid black">
+  <thead style="background-color:black">
+    <tr style="text-align: center; color: white; font-size: 20px; font-weight: bold"><td colspan="2">פרטים של {{user.firstName}} {{user.lastName}}</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid black;">{{user.id}}</td>
+        <td style="font-weight: bold; border: 1px solid black;">תעודת זהות</td>
+      </tr>
+       <tr>
+        <td style="border: 1px solid black;">{{user.email}}</td>
+        <td style="font-weight: bold; border: 1px solid black;">כתובת מייל</td>
+      </tr>
+    </tbody>
+  
+</table>
+
+<br>
+
+<br>
+
+<br>
+<div *ngIf="user.hours.length===0">
+  <h3 *ngIf="user.hours" style="text-align: right">אין דו"ח שעות להציג</h3>
+</div>
+<div class="hoursReport">
+  <table class="table" *ngIf="user.hours.length!==0"> 
+    <thead>
+      <tr>
+        <th>סה"כ שעות</th>
+        <th>סיום</th>
+        <th>התחלה</th>
+        <th>מעסיק</th>
+        <th>יום</th>
+        <th>תאריך</th>
+        <th>#</th>
+      </tr> 
+    </thead>
+   
+    <tbody>
+      <tr *ngFor="let hours of user.hours; let i=index">
+        <td>{{hours.totalHours}}</td>
+        <td>{{hours.endHour}}</td>
+        <td>{{hours.startHour}}</td>
+        <td>{{hours.employer}}</td>
+        <td>{{hours.day}}</td>
+        <td>{{hours.date}}</td>
+        <td>{{(i+1)}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
