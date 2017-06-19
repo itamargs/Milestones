@@ -1,7 +1,12 @@
 <div class="row">
   <div class="col-xs-12">
-    <form (ngSubmit)="add(f)" #f="ngForm">
-      <input>
+    <form role="form" (ngSubmit)="add(f)" #f="ngForm" class="pull-right">
+      <button class="btn btn-success" type="submit">הוסף</button>
+      <input type="text" value="" name="totalHours" ngModel placeholder='סה"כ שעות' required>
+      <input type="text" value="" name="endHour" ngModel placeholder="שעת סיום" required>
+      <input type="text" value="" name="startHour" ngModel placeholder="שעת התחלה" required>
+      <input type="text" value="" name="date" ngModel placeholder="תאריך" required>
+      <input type="text" value="" name="employer" ngModel placeholder="מעסיק" required>
     </form>
   </div>
 </div>

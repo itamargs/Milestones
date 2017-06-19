@@ -12,4 +12,7 @@ export class JobHoursComponent implements OnInit {
   ngOnInit() {
   }
 
+  add(day){
+
+  }
 }
