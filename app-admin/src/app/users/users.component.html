@@ -1,0 +1,32 @@
+<div *ngIf="isAdmin">
+  <app-admin-navbar></app-admin-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-push-6">
+      <app-users-list
+      [type]="type"
+      *ngIf="!selectedAdd"></app-users-list>
+      
+      <app-user-add
+      *ngIf="selectedAdd"></app-user-add>
+    </div>
+    
+    <div class="col-md-6 col-md-pull-6">
+      <app-user-details
+      *ngIf="selectedUser"
+      [user]="selectedUser"></app-user-details>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="!isAdmin">
+  <app-user-navbar></app-user-navbar>
+  <br><br><br><br><br>
+  <app-user-details
+      *ngIf="selectedUser"
+      [user]="selectedUser"></app-user-details>
+</div>
+
+
+

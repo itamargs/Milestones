@@ -1,0 +1,63 @@
+
+  
+    <div class="col-xs-12">
+      <div class="col-xs-push-6">
+        <div class="inner-addon right-addon">
+          <span class="glyphicon glyphicon-search"></span>
+          <input type="text" class="form-control" placeholder="חפש משתמש" [(ngModel)]="filteredUser" style="float: right; text-align: right">
+        </div>
+      </div>
+      <div class="col-xs-pull-6">
+        <div class="addUser">
+          <button type="button" class="btn btn-info" (click)="openAddWindow()" style="text-align: center; width:100%; background-color:darkslateblue">
+              הוסף משתמש</button>
+          </div>
+        </div>
+      </div>
+   
+    <br><br>
+    <div class="myUsers">
+    <table class="table"> 
+    <thead>
+      <tr>
+        <th colspan="2" *ngIf="!deleteSelected">
+         <button type="button" class="btn btn-danger btn-sm" (click)="chooseDelete()">
+           מחק משתמש <span class="glyphicon glyphicon-trash"></span>
+         </button>
+        </th>
+        <th colspan="2" *ngIf="deleteSelected">
+         <button type="button" class="btn btn-danger btn-sm" (click)="chooseDelete()">
+           בטל מחיקה <span class="glyphicon glyphicon-remove"></span>
+         </button>
+        </th>
+        <th>התקדמות</th>
+        <th>שם פרטי</th>
+        <th>שם משפחה</th>
+        <th>#</th>
+      </tr> 
+    </thead>
+   
+    <tbody>
+      <tr *ngFor="let user of (users | filterList:type:filteredUser:users) ; let i=index;">
+        <td> <button type="button" class="btn btn-success btn-sm" (click)="onUserSelected(user)">
+           צפייה <span class="glyphicon glyphicon-eye-open"></span>
+        </button>
+        </td>
+        <td *ngIf="deleteSelected"> <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteUser(user)">
+           מחק <span class="glyphicon glyphicon-trash"></span>
+        </button>
+        </td>
+        <td *ngIf="!deleteSelected"> <button type="button" class="btn btn-info btn-sm" (click)="oo(user)">
+           שלח הודעה <span class="glyphicon glyphicon-envelope"></span>
+        </button>
+        </td>
+        <td *ngIf="user.type===0">{{onChartUser(user)}}%</td>
+        <td *ngIf="user.type===1">{{onChartUser(user)}}%</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{(i+1)}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  
