@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
-import * as admin from 'firebase-admin';
+// import * as admin from 'firebase-admin';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
