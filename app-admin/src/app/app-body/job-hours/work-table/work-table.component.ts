@@ -14,7 +14,8 @@ export class WorkTableComponent implements OnInit {
     employer: String,
     startHour: String,
     endHour: String,
-    totalHours: String
+    totalHours: String,
+    key: string
   };
 
 days = [];
@@ -27,11 +28,15 @@ days = [];
 
   onEdit(day: any) {
     this.edit = day;
-
+    console.log(this.edit);
   }
 
   onDelete(day: any){
+    var warning = confirm("אתה בטוח?");
+    if(warning){
     firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(day.key)).remove();
+    this.days[this.days.indexOf(day)]
+    this.days.splice(this.days.indexOf(day), 1);}
   }
 
   onSubmit(form: NgForm) {
@@ -41,7 +46,11 @@ days = [];
     this.edit.endHour = form.value.endHour;
     this.edit.startHour = form.value.startHour;
     this.edit.totalHours = form.value.totalHours;
-     console.log(this.edit);
+    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/date').set(form.value.date);
+    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/employer').set(form.value.employer);
+    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/endHour').set(form.value.endHour);
+    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/startHour').set(form.value.startHour);
+    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/totalHours').set(form.value.totalHours);
     this.edit = null;
   }
 
