@@ -4,3 +4,8 @@ th{
 .red-text{
     color: darkred;
 }
+.edit input{
+    position: relative;
+    text-align: right;
+    width: 120px;
+}

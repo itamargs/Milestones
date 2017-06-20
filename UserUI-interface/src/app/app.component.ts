@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private logged_in: boolean = false;
+  private logged_in: boolean = true;
 
   constructor(private AccountService: AccountService) {}
 
