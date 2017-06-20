@@ -20,7 +20,7 @@ export class AuthService{
             response => {firebase.auth().signOut()
                          this.signinUser(String(this.adminEmail), String(this.adminPass))})
         .catch(
-            error => {console.log(error.message)}
+            error => {this.error = error.message}
             
         )
     }
@@ -37,7 +37,7 @@ export class AuthService{
                  if(this.isAdmin()){
                      this.adminEmail = email;
                      this.adminPass = password;
-                    this.router.navigate(['/type1']);
+                    this.router.navigate(['/type0']);
                  }
                 else
                     this.router.navigate(['/type0']);

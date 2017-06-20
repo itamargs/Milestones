@@ -19,6 +19,9 @@ import { DropdownDirective } from 'app/dropdown.directive';
 import { FilterListPipe } from './users/users-list/filter-list.pipe';
 import { LoginComponent } from './auth/login/login.component';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
+import { AppBodyComponent } from './app-body/app-body.component';
+import { JobHoursComponent } from './app-body/job-hours/job-hours.component';
+import { WorkTableComponent } from './app-body/job-hours/work-table/work-table.component';
 
 
 @NgModule({
@@ -33,6 +36,9 @@ import { UserNavbarComponent } from './user-navbar/user-navbar.component';
     FilterListPipe,
     LoginComponent,
     UserNavbarComponent,
+    AppBodyComponent,
+    JobHoursComponent,
+    WorkTableComponent,
   ],
   imports: [
     BrowserModule,

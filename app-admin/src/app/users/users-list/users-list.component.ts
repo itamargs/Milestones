@@ -95,13 +95,15 @@ export class UsersListComponent implements OnInit {
   }
     
     oo(user: User) {
-      var newh = new Hours('1/1/12','אfffffffffffffff','משה','7:00','17:00',10,1);
+      var newh = new Hours('1/1/12','אfffffffffffffff','משה','7:00','17:00',10,1,'');
+      
       //console.log(String(this.userService.getUsers()[this.userService.getIndex(user)].key));
       //var a = firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours/0');
       //a.push(newh);
       if(firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours/0').key==='0')
         firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours/0').remove();
-      firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours').push(newh);
+      newh.key = String(firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours').push(newh).key);
+      firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours/' + String(newh.key) + '/key').set(newh.key);
       this.userService.getUser(this.userService.getIndex(user)).hours.push(newh);
     }
 

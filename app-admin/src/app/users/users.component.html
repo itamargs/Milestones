@@ -22,10 +22,13 @@
 
 <div *ngIf="!isAdmin">
   <app-user-navbar></app-user-navbar>
-  <br><br><br><br><br>
+  <!--<br><br><br><br><br>
   <app-user-details
       *ngIf="selectedUser"
-      [user]="selectedUser"></app-user-details>
+      [user]="selectedUser"></app-user-details>-->
+      <app-app-body
+      *ngIf="selectedUser"
+      [user]="selectedUser"></app-app-body>
 </div>
 
 

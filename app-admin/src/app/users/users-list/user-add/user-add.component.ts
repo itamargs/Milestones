@@ -28,7 +28,7 @@ export class UserAddComponent implements OnInit {
                               form.value.email,
                               form.value.id,
                               +form.value.type,
-                              [new Hours('none','none','none','none','none',0,0)],
+                              [new Hours('none','none','none','none','none',0,0,'')],
                               '');
     this.userService.addUser(newUser);
     this.authService.signupUser(newUser.email, String(newUser.password));

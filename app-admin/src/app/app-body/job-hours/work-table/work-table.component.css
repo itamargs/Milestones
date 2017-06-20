@@ -1,0 +1,11 @@
+th{
+    text-align: right;
+}
+.red-text{
+    color: darkred;
+}
+.edit input{
+    position: relative;
+    text-align: right;
+    width: 120px;
+}

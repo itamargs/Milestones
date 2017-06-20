@@ -1,0 +1,51 @@
+<div class="table-responsive">
+  <form role="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>סה"כ שעות</th>
+          <th>שעת סיום</th>
+          <th>שעת התחלה</th>
+          <th>תאריך</th>
+          <th>מעסיק</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let day of days; let i = index">
+          <tr *ngIf="day === edit">
+            <th>
+              <button class="btn btn-default" type="submit">
+            <span class="glyphicon glyphicon-pencil"></span> שמור
+          </button>
+            </th>
+            <th class="edit"><input type="text" value="{{day.totalHours}}" name="totalHours" ngModel={{day.totalHours}}></th>
+            <th class="edit"><input type="text" value="{{day.endHour}}" name="endHour" ngModel={{day.endHour}}></th>
+            <th class="edit"><input type="text" value="{{day.startHour}}" name="startHour" ngModel={{day.startHour}}></th>
+            <th class="edit"><input type="text" value="{{day.date}}" name="date" ngModel={{day.date}}></th>
+            <th class="edit"><input type="text" value="{{day.employer}}" name="employer" ngModel={{day.employer}}></th>
+            <th>{{i+1}}</th>
+          </tr>
+          <tr *ngIf="day !== null && day !== edit">
+            <th>
+              <a class="red-text" (click)="onDelete(day)" style="cursor: pointer">
+          מחק <span class="glyphicon glyphicon-remove"></span>
+          </a> |
+              <a (click)="onEdit(day)" style="cursor: pointer">
+            <span class="glyphicon glyphicon-pencil"></span> ערוך
+          </a>
+            </th>
+            <th>{{day.totalHours}}</th>
+            <th>{{day.endHour}}</th>
+            <th>{{day.startHour}}</th>
+            <th>{{day.date}}</th>
+            <th>{{day.employer}}</th>
+            <th>{{i+1}}</th>
+          </tr>
+        </ng-container>
+
+      </tbody>
+    </table>
+  </form>
+</div>

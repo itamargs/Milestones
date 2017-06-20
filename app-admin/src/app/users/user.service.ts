@@ -52,7 +52,8 @@ export class UserService {
                                                                  this.users[i].hours[j].startHour,
                                                                  this.users[i].hours[j].endHour,
                                                                  this.users[i].hours[j].totalHours,
-                                                                 this.users[i].hours[j].totalDays);}
+                                                                 this.users[i].hours[j].totalDays,
+                                                                 this.users[i].hours[j].key)}
                 }
                 );
                 }
