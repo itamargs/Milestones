@@ -31,8 +31,7 @@ days = [];
   }
 
   onDelete(day: any){
-    console.log(day.key);
-    firebase.database().ref('users/' + String(this.a.user.key) + '/hours' + String(day.key)).remove();
+    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(day.key)).remove();
   }
 
   onSubmit(form: NgForm) {
