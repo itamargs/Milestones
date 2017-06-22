@@ -1,3 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserNavbarComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private route: Router, private router: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -17,5 +19,6 @@ export class UserNavbarComponent implements OnInit {
     
     this.auth.signOutUser();
   }
+  
 
 }

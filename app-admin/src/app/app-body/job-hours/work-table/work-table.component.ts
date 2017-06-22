@@ -9,8 +9,10 @@ import * as firebase from 'firebase';
   styleUrls: ['./work-table.component.css']
 })
 export class WorkTableComponent implements OnInit {
+  private types = [1,2,3];
  private edit: {
     date: String,
+    day: string,
     employer: String,
     startHour: String,
     endHour: String,
@@ -24,6 +26,17 @@ days = [];
 
   ngOnInit() {
     this.days = this.a.user.hours;
+    this.days.sort((a, b)=>{
+    if(a.date < b.date) return -1;
+    if(a.date > b.date) return 1;
+    return 0;
+})
+    console.log(this.days);
+  }
+
+  callType(value){
+    console.log(value);
+    
   }
 
   onEdit(day: any) {
@@ -41,12 +54,18 @@ days = [];
 
   onSubmit(form: NgForm) {
     console.log(form);
-    this.edit.date = form.value.date;
+    let dateLen = form.value.date.length;
+    let newDate = form.value.date.slice(dateLen-2, dateLen) + '/'
+                  + form.value.date.slice(dateLen-5, dateLen-3) + '/'
+                  + form.value.date.slice(0, dateLen-6);
+    this.edit.date = newDate;
+    this.edit.day = form.value.day;
     this.edit.employer = form.value.employer;
     this.edit.endHour = form.value.endHour;
     this.edit.startHour = form.value.startHour;
     this.edit.totalHours = form.value.totalHours;
-    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/date').set(form.value.date);
+    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/date').set(newDate);
+    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/day').set(form.value.day);
     firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/employer').set(form.value.employer);
     firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/endHour').set(form.value.endHour);
     firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/startHour').set(form.value.startHour);

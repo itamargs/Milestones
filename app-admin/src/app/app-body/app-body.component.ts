@@ -1,3 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from './../users/user.service';
 import { User } from './../users/user.model';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -8,10 +10,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AppBodyComponent implements OnInit {
 @Input() user: User;
-  constructor() { }
+  type: string;
+  constructor(private userService: UserService, private router: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.user);
+    this.type = this.router.routeConfig.path;
   }
 
 }

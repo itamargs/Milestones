@@ -1,5 +1,11 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="type==='hours'">
     <app-job-hours></app-job-hours>
+  </div>
+  <div class="row" *ngIf="type==='messages'">
+    <app-messages-tab></app-messages-tab>
+  </div>
+  <div class="row" *ngIf="type==='files'">
+    <app-files></app-files>
   </div>
 </div>

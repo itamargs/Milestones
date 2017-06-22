@@ -1,3 +1,4 @@
+import { Messages } from './messages.model';
 import { Http } from '@angular/http';
 import { AuthService } from './../auth/auth.service';
 import { Hours } from './hours.model';
@@ -28,10 +29,12 @@ export class UserService {
     findUser(user: User) {
         return String(user.email)===String(firebase.auth().currentUser.email);
     }
+    
     getData() {
         firebase.database().ref('users')
         .on('child_added', (snapshot) => {
             this.users.push(snapshot.val())
+            
             for(var i=0; i<this.users.length;i++) {
                 this.users[i] = new User(this.users[i].firstName,
                                          this.users[i].lastName,
@@ -40,10 +43,11 @@ export class UserService {
                                          this.users[i].password,
                                          this.users[i].type,
                                          [],
+                                         [],
                                          this.users[i].key)
-                                                                                
+
                  firebase.database().ref('users/' + String(this.users[i].key) + '/hours')
-                 .on('child_added', (snapshot)=> {console.log(this.users[i].hours.length)
+                 .on('child_added', (snapshot)=> {
                     this.users[i].hours.push(snapshot.val())
                          for(var j=0; j<this.users[i].hours.length; j++){
                               this.users[i].hours[j] = new Hours(this.users[i].hours[j].date,
@@ -54,6 +58,17 @@ export class UserService {
                                                                  this.users[i].hours[j].totalHours,
                                                                  this.users[i].hours[j].totalDays,
                                                                  this.users[i].hours[j].key)}
+                }
+                );
+                 firebase.database().ref('users/' + String(this.users[i].key) + '/messages')
+                 .on('child_added', (snapshot)=> {
+                    this.users[i].messages.push(snapshot.val())
+                         for(var j=0; j<this.users[i].messages.length; j++){
+                              this.users[i].messages[j] = new Messages(this.users[i].messages[j].title,
+                                                                        this.users[i].messages[j].date,
+                                                                        this.users[i].messages[j].content,
+                                                                        this.users[i].messages[j].key,
+                                                                        this.users[i].messages[j].status)}
                 }
                 );
                 }
@@ -101,5 +116,11 @@ export class UserService {
         firebase.database().ref('users/'+user.key + '/key').set(user.key);
         
         
+    }
+
+    ff(newh: Hours, user: User) {
+        newh.key = String(firebase.database().ref('users/' + String(this.getUsers()[this.getIndex(user)].key) + '/hours').push(newh).key);
+      firebase.database().ref('users/' + String(this.getUsers()[this.getIndex(user)].key) + '/hours/' + String(newh.key) + '/key').set(newh.key);
+      this.getUser(this.getIndex(user)).hours.push(newh);
     }
 }

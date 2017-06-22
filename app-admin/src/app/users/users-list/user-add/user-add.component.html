@@ -10,27 +10,27 @@
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-push-6">
 			    					<div class="form-group">
-										<input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="שם פרטי" ngModel required >
+										<input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="שם פרטי" ngModel required dir="auto">
 			    					</div>
 			    				</div>	
 			    				<div class="col-xs-6 col-sm-6 col-md-pull-6">
 			    					<div class="form-group">
-										<input type="text" name="last_name" id="last_name" class="form-control input-sm floatlabel" placeholder="שם משפחה" ngModel required>
+										<input type="text" name="last_name" id="last_name" class="form-control input-sm floatlabel" placeholder="שם משפחה" ngModel required dir="auto">
 			    					</div>
 			    				</div>
 			    			</div>
 
 			    			<div class="form-group">
-			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="אימייל" ngModel required> 
+			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="אימייל" ngModel required dir="auto"> 
 			    			</div>
 							<div class="row">
-								<div class="col-sm-6" style="float: right">
+								<div class="col-sm-6" style="text-align: right">
 									<label class="radio"><input type="radio" name="type" value=1 ngModel required>קטיף ישראלי</label>
                       				<label class="radio"><input type="radio" name="type" value=0 ngModel required>עמק תפארת</label>
 			    				</div>
 								<div class="col-sm-6">
 			    					<div class="form-group">
-			    						<input type="number" name="id" id="id" class="form-control input-sm" placeholder="תעודת זהות" ngModel required>
+			    						<input type="number" name="id" id="id" class="form-control input-sm" placeholder="תעודת זהות" ngModel required dir="auto">
 			    					</div>
 			    				</div>
 
@@ -45,7 +45,7 @@
 			    				</div>
 								
 			    			</div>
-							<h5 *ngIf="error">feef</h5>
+							<h5 *ngIf="error" style="text-align: center; font-weight: bold; color: red">ת.ז. קצרה מדי</h5>
 			    		</form>
 			    	</div>
 	    		</div>

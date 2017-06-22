@@ -1,0 +1,21 @@
+<div *ngIf="msg != null" class="row panel panel-default">
+  <div class="col-xs-12">
+    <div class="row panel-heading">
+      <a style="cursor: pointer" (click)="openMsg()">
+        <div class="col-xs-4" style="text-align: left">
+          {{msg.date}}
+        </div>
+        <div class="col-xs-8" style="text-align: right">
+          {{msg.title}}
+        </div>
+      </a>
+    </div>
+
+    <div [class.expand]="clicked" [class.unexpand]="!clicked" class="row panel-body">
+      <div class="col-xs-12" style="text-align: right">
+        {{msg.content}}
+      </div>
+      <div class="col-xs-12"><button (click)="delete()" class="btn btn-danger">מחק</button></div>
+    </div>
+  </div>
+</div>

@@ -12,33 +12,34 @@ import { NgForm } from "@angular/forms";
   styleUrls: ['./user-add.component.css']
 })
 export class UserAddComponent implements OnInit {
-  error: string;
+  error = false;
   constructor(private userService: UserService, private authService: AuthService, private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
     
   }
+
   closeAddForm() {
     this.userService.addSelected.emit();
   }
+
   onSubmit(form: NgForm) {
-    const newUser = new User(form.value.first_name,
+    if(String(form.value.id).length < 6)
+      this.error = true;
+    else{
+      const newUser = new User(form.value.first_name,
                               form.value.last_name,
                               form.value.id,
                               form.value.email,
                               form.value.id,
                               +form.value.type,
-                              [new Hours('none','none','none','none','none',0,0,'')],
+                              null,
+                              null,
                               '');
-    this.userService.addUser(newUser);
-    this.authService.signupUser(newUser.email, String(newUser.password));
-    
-    this.error = this.authService.error ;
-     this.dataStorageService.setUser(newUser);
-    //form.reset();
-    if(!this.error)
+      this.userService.addUser(newUser);
+      this.authService.signupUser(newUser.email, String(newUser.password));
+      this.dataStorageService.setUser(newUser);
       this.closeAddForm();
-    
+    }
   }
-
 }

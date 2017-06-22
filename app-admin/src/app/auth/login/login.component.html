@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="col-sm-6 col-sm-offset-3">
-		<img src="../../../assets/login.png" style="padding-left: 100px;">
+		<img src="../../../assets/login.png">
     <div class="panel panel-default">
       <div class="panel-heading">
         <div class="text-center panel-title">התחבר</div>
@@ -11,20 +11,25 @@
           <form class="form-horizontal" (ngSubmit)="onLogin(f)" #f="ngForm">
             <div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-			        <input class="form-control" type="email" id="email" name="email" placeholder="" class="input-xlarge" placeholder="משתמש"
+			        <input class="form-control" type="email" id="email" name="email" placeholder="משתמש"
               style="text-align: right" ngModel>
 			      </div>
             <br>
             <div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-			        <input class="form-control" type="password" id="password" name="password" placeholder="" class="input-xlarge" style="text-align: right"
+			        <input class="form-control" type="password" id="password" name="password" style="text-align: right"
               placeholder="סיסמה" ngModel>
 			    	</div>
-            <br>          
+            <br>
+            <div *ngIf="error" style="text-align: center; color: red">
+							{{error}}
+			    	</div> 
+            <br>         
             <button class="btn btn-primary pull-left" type="submit">התחבר <i class="glyphicon glyphicon-log-in"></i></button>
           </form>
         </div>
       </div>
+      <a routerLink="/reset" style="text-align: center">שכחתי סיסמא</a>
     </div>
   </div>
 </div>

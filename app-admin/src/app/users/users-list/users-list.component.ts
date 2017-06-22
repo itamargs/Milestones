@@ -1,3 +1,4 @@
+import { Messages } from './../messages.model';
 import { Hours } from './../hours.model';
 
 import { DataStorageService } from './../../shared/data-storage.service';
@@ -42,7 +43,7 @@ export class UsersListComponent implements OnInit {
 //================== filtered users by type and sort by last and first name ===================
   filter(type: any) {
     var pageType: number;
-    if(type==='type0')
+    if(type==='emek')
       pageType = 0;
     else
       pageType = 1;
@@ -93,27 +94,29 @@ export class UsersListComponent implements OnInit {
   chooseDelete() {
      this.deleteSelected = !this.deleteSelected;
   }
+
+  sendMessage(user: User) {
+    let newMessage = new Messages('welcome',String(new Date().getDate() + '/' + (new Date().getMonth()+1) + '/' + new Date().getFullYear() + ' | ' + new Date().getHours() + ':' + new Date().getMinutes()),'good day', '', false);
+    let newKey = firebase.database().ref('users/' + String(user.key) + '/messages').push(newMessage).key;
+    firebase.database().ref('users/' + String(user.key) + '/messages/' + String(newKey) + '/key').set(newKey);
+  }
     
     oo(user: User) {
-      var newh = new Hours('1/1/12','אfffffffffffffff','משה','7:00','17:00',10,1,'');
-      
+      //var newh = new Hours(1/1/12,'אfffffffffffffff','משה','7:00','17:00',10,1,'');
+      //this.userService.ff(newh, user);
       //console.log(String(this.userService.getUsers()[this.userService.getIndex(user)].key));
       //var a = firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours/0');
       //a.push(newh);
-      if(firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours/0').key==='0')
-        firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours/0').remove();
-      newh.key = String(firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours').push(newh).key);
-      firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours/' + String(newh.key) + '/key').set(newh.key);
-      this.userService.getUser(this.userService.getIndex(user)).hours.push(newh);
+      
     }
 
-    onChartUser(user: User) {}
-    /*  var limit;
+    onChartUser(user: User) {
+     let limit;
       if(user.hours){
       if(user.type===1) {
         limit = 0;
         for(var i=0; i<user.hours.length;i++)
-          limit+=user.hours[i].totalHours;
+          limit+=(+user.hours[i].totalHours);
         limit = (limit/250)*100;
       }
       if(user.type===0)
@@ -122,5 +125,5 @@ export class UsersListComponent implements OnInit {
       limit = parseFloat(limit).toFixed(2);
       }
       return limit;
-    }*/
+    }
 }

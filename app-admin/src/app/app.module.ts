@@ -22,6 +22,11 @@ import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { AppBodyComponent } from './app-body/app-body.component';
 import { JobHoursComponent } from './app-body/job-hours/job-hours.component';
 import { WorkTableComponent } from './app-body/job-hours/work-table/work-table.component';
+import { StartComponent } from './start/start.component';
+import { MessagesTabComponent } from './app-body/messages-tab/messages-tab.component';
+import { FilesComponent } from './app-body/files/files.component';
+import { MessageComponent } from './app-body/messages-tab/message/message.component';
+import { ResetComponent } from './auth/login/reset/reset.component';
 
 
 @NgModule({
@@ -39,6 +44,11 @@ import { WorkTableComponent } from './app-body/job-hours/work-table/work-table.c
     AppBodyComponent,
     JobHoursComponent,
     WorkTableComponent,
+    StartComponent,
+    MessagesTabComponent,
+    FilesComponent,
+    MessageComponent,
+    ResetComponent,
   ],
   imports: [
     BrowserModule,

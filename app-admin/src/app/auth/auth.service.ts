@@ -12,7 +12,10 @@ export class AuthService{
     adminPass: string;
     constructor(private router: Router, private http: Http){
        firebase.database().ref('admin/uid').on('value', (snapshot)=> this.admin = snapshot.val());
+       
+             console.log(firebase.auth().currentUser);   
     }
+    
 
     signupUser(email: string, password: string) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -29,7 +32,7 @@ export class AuthService{
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(
             response => {
-              firebase.auth().currentUser.getIdToken()
+              firebase.auth().currentUser.getToken()
                 .then(
                      (token: string) => this.token = token
                 )
@@ -37,12 +40,15 @@ export class AuthService{
                  if(this.isAdmin()){
                      this.adminEmail = email;
                      this.adminPass = password;
-                    this.router.navigate(['/type0']);
+                    this.router.navigate(['/emek']);
                  }
                 else
-                    this.router.navigate(['/type0']);
+                    this.router.navigate(['/user']);
                     
             }
+        )
+        .catch(
+            error => this.error=error.message
         )
     }
 
@@ -58,7 +64,7 @@ export class AuthService{
     }
 
     getToken() {
-        firebase.auth().currentUser.getIdToken()
+        firebase.auth().currentUser.getToken()
         .then(
             (token: string) => 
                 this.token = token
@@ -67,6 +73,7 @@ export class AuthService{
     }
 
     isAuth() {
+        console.log(firebase.auth().currentUser);
         if(this.token == null)
             this.router.navigate(['/login']);
         return this.token != null;
@@ -85,6 +92,12 @@ export class AuthService{
 
     isAdmin() {
         return this.admin===firebase.auth().currentUser.uid;
+    }
+
+    resetPass(email: string) {
+        firebase.auth().sendPasswordResetEmail(String(email)).then(
+            error=>console.log(error)
+        )
     }
 
 }

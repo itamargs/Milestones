@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+		<img src="../../../assets/login.png" style="padding-left: 100px;">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="text-center panel-title">רשום את האימייל שלך</div>
+      </div>
+      <div class="panel-body">
+        <div class="col-sm-8 col-sm-offset-2">
+          <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+			        <input class="form-control" type="email" id="email" name="email" ngModel>
+			      </div>
+            <br>
+            <button class="btn btn-primary pull-left" type="submit">אישור </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,10 @@
 <div class="table-responsive">
   <form role="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+   <!-- <button type="button" class="btn btn-info" (click)="onClick()">עבור</button>
+    <select id="soflow-color" value="a" style="float: right" #t (change)="callType(t.value)">
+        <option> בחר חודש</option>
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>-->
     <table class="table table-striped">
       <thead>
         <tr>
@@ -7,6 +12,7 @@
           <th>סה"כ שעות</th>
           <th>שעת סיום</th>
           <th>שעת התחלה</th>
+          <th>יום</th>
           <th>תאריך</th>
           <th>מעסיק</th>
           <th>#</th>
@@ -20,11 +26,12 @@
             <span class="glyphicon glyphicon-pencil"></span> שמור
           </button>
             </th>
-            <th class="edit"><input type="text" value="{{day.totalHours}}" name="totalHours" ngModel={{day.totalHours}}></th>
-            <th class="edit"><input type="text" value="{{day.endHour}}" name="endHour" ngModel={{day.endHour}}></th>
-            <th class="edit"><input type="text" value="{{day.startHour}}" name="startHour" ngModel={{day.startHour}}></th>
-            <th class="edit"><input type="text" value="{{day.date}}" name="date" ngModel={{day.date}}></th>
-            <th class="edit"><input type="text" value="{{day.employer}}" name="employer" ngModel={{day.employer}}></th>
+            <th class="edit"><input type="number" name="totalHours" ngModel={{day.totalHours}} dir="auto"></th>
+            <th class="edit"><input type="time" name="endHour" ngModel={{day.endHour}} dir="auto"></th>
+            <th class="edit"><input type="time" name="startHour" ngModel={{day.startHour}} dir="auto"></th>
+            <th class="edit"><input type="text" name="day" ngModel={{day.day}} dir="auto"></th>
+            <th class="edit"><input type="date" name="date" ngModel={{day.date}} dir="auto"></th>
+            <th class="edit"><input type="text" name="employer" ngModel={{day.employer}} dir="auto"></th>
             <th>{{i+1}}</th>
           </tr>
           <tr *ngIf="day !== null && day !== edit">
@@ -39,6 +46,7 @@
             <th>{{day.totalHours}}</th>
             <th>{{day.endHour}}</th>
             <th>{{day.startHour}}</th>
+            <th>{{day.day}}</th>
             <th>{{day.date}}</th>
             <th>{{day.employer}}</th>
             <th>{{i+1}}</th>

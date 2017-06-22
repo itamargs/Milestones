@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <h5 style="text-align: right">יש לך {{index}} הודעות שלא נקראו</h5>
+    <div class="col-xs-12">
+      <app-message *ngFor='let msg of msgList' [msg]="msg"></app-message>
+    </div>
+  </div>
+</div>
