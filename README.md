@@ -37,7 +37,7 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Documnetation | [![Inline docs](http://inch-ci.org/github/jce-il/project-template.svg?branch=master)](http://inch-ci.org/github/jce-il/project-template) |
 | Project Course Status | ... |
 
-## Visit our (temporray) application (https://gs2dabu.000webhostapp.com/tmp.html)
+## Visit our (temporray) application (https://milestones-app.firebaseapp.com)
 
 ## Disclaimer
 This project is developed as part of the requirements for a [software engineering course](https://github.com/jce-il/se-class/wiki) at the software engineering department - [Azrieli College of Engineering](http://www.jce.ac.il/), Jerusalem, Israel.
@@ -57,9 +57,9 @@ Please visit our wiki for furthur project info:
 ### Iteration Pages
 - [Iteration 0 - ZFR](../../wiki/iter0-zfr)
 - [Iteration 1 - MVP](../../wiki/iter1-mvp)
-- [Iteration 2 - Feature X](../../wiki/iter2-xxx)
-- [Iteration 3 - Feature Y](../../wiki/iter3-xxx)
-- [Iteration 4 - Feature Z](../../wiki/iter4-xxx)
+- [Iteration 2 - Feature X](../../wiki/iter2)
+- [Iteration 3 - Feature Y](../../wiki/iter3)
+- [Iteration 4 - Feature Z](../../wiki/iter4)
 
 
 
