@@ -1,3 +1,4 @@
+import { Hours } from './../../../users/hours.model';
 import { NgForm } from '@angular/forms';
 import { AppBodyComponent } from './../../app-body.component';
 import { User } from './../../../users/user.model';
@@ -22,10 +23,10 @@ export class WorkTableComponent implements OnInit {
 
 days = [];
 
-  constructor(private a: AppBodyComponent) { }
+  constructor(private appBody: AppBodyComponent) { }
 
   ngOnInit() {
-    this.days = this.a.user.hours;
+    this.days = this.appBody.user.hours;
     this.days.sort((a, b)=>{
     if(a.date < b.date) return -1;
     if(a.date > b.date) return 1;
@@ -47,7 +48,7 @@ days = [];
   onDelete(day: any){
     var warning = confirm("אתה בטוח?");
     if(warning){
-    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(day.key)).remove();
+    firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(day.key)).remove();
     this.days[this.days.indexOf(day)]
     this.days.splice(this.days.indexOf(day), 1);}
   }
@@ -60,14 +61,15 @@ days = [];
     this.edit.endHour = form.value.endHour;
     this.edit.startHour = form.value.startHour;
     this.edit.totalHours = form.value.totalHours;
-    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/date').set(form.value.date);
-    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/day').set(form.value.day);
-    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/employer').set(form.value.employer);
-    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/endHour').set(form.value.endHour);
-    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/startHour').set(form.value.startHour);
-    firebase.database().ref('users/' + String(this.a.user.key) + '/hours/' + String(this.edit.key) + '/totalHours').set(form.value.totalHours);
+    firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/date').set(form.value.date);
+    firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/day').set(form.value.day);
+    firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/employer').set(form.value.employer);
+    firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/endHour').set(form.value.endHour);
+    firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/startHour').set(form.value.startHour);
+    firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/totalHours').set(form.value.totalHours);
     this.edit = null;
   }
+
 
 
 }
