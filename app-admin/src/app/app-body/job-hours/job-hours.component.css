@@ -1,3 +1,8 @@
-input{
+.add input{
+    position: relative;
+    text-align: right;
+    width: 120px;
+}
+th{
     text-align: right;
 }

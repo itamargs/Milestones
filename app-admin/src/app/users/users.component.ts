@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
   type:any;
   @Input() user: User;
   isAdmin = this.authService.isAdmin();
+  mainPage=false;
   constructor(private userService: UserService,
               private router: ActivatedRoute,
               private authService: AuthService) { 
@@ -24,6 +25,7 @@ export class UsersComponent implements OnInit {
               }
 
   ngOnInit() {
+    this.mainPage = (this.router.routeConfig.path==='main');
      if(!this.authService.isAdmin())
         {
           for(var i=0; i < this.userService.getUsers().length; i++)

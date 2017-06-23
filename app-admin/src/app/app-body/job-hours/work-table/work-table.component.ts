@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core';
 import { Hours } from './../../../users/hours.model';
 import { NgForm } from '@angular/forms';
 import { AppBodyComponent } from './../../app-body.component';
@@ -10,6 +11,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./work-table.component.css']
 })
 export class WorkTableComponent implements OnInit {
+  private hoursChanged = new EventEmitter<Hours[]>();
   private types = [1,2,3];
  private edit: {
     date: String,
@@ -32,6 +34,15 @@ days = [];
     if(a.date > b.date) return 1;
     return 0;
 })
+  this.hoursChanged.subscribe(
+    (hour: Hours[]) => {
+      this.days = this.days.sort((a, b)=>{
+    if(a.date < b.date) return -1;
+    if(a.date > b.date) return 1;
+    return 0;
+})
+    }
+  )
     console.log(this.days);
   }
 

@@ -1,3 +1,5 @@
+import { User } from './../users/user.model';
+
 import { UserService } from './../users/user.service';
 import { Http } from '@angular/http';
 import { Injectable, Directive } from '@angular/core';
@@ -7,6 +9,7 @@ import * as firebase from 'firebase';
 export class AuthService{
     token: string;
     error: string;
+    user: User;
     admin: string;
     uid: string;
     constructor(private router: Router, private http: Http){
@@ -30,18 +33,17 @@ export class AuthService{
     signinUser(email: string, password: string) {
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(
-            response => {
+            response => {firebase.database().ref('users')
+                        .on('child_added', (snapshot)=> {
+                            if(String(snapshot.child('uid').val())===String(firebase.auth().currentUser.uid))
+                                this.user = snapshot.val();
+                        });
                 
               firebase.auth().currentUser.getToken()
                 .then(
                      (token: string) => this.token = token
                 )
-                
-                 if(String(this.admin) === String(firebase.auth().currentUser.uid)){
-                    this.router.navigate(['/emek']);
-                 }
-                else
-                    this.router.navigate(['/user']);
+                this.router.navigate(['/main']);
                 console.log(firebase.auth().currentUser.uid)    
             }
             

@@ -1,3 +1,5 @@
+import { StartComponent } from './start/start.component';
+import { UserMessageComponent } from './users/users-list/user-message/user-message.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ResetComponent } from './auth/login/reset/reset.component';
 import { MessagesTabComponent } from './app-body/messages-tab/messages-tab.component';
@@ -14,10 +16,11 @@ const appRoutes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'reset', component: ResetComponent },
     { path: 'emek', component: UsersComponent, canActivate: [AuthGuard] },
+    { path: 'message', component: UserMessageComponent, canActivate: [AuthGuard] },
     { path: 'katif', component: UsersComponent, canActivate: [AuthGuard]},
     { path: 'files', component: UsersComponent, canActivate: [AuthGuard]},
     { path: 'hours', component: UsersComponent, canActivate: [AuthGuard]},
-    { path: 'user', component:UsersComponent, canActivate: [AuthGuard]},
+    { path: 'main', component:StartComponent, canActivate: [AuthGuard]},
     { path: 'messages', component:UsersComponent, canActivate: [AuthGuard]},
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent }

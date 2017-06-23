@@ -1,17 +1,51 @@
+
 <div class="row">
   <div class="col-xs-12">
-    <form role="form" (ngSubmit)="add(f)" #f="ngForm" class="pull-right">
-      <button class="btn btn-success" type="submit">הוסף</button>
-      <button class="btn btn-info" type="reset">נקה</button>
-      <input type="number" value="" name="totalHours" ngModel placeholder='סה"כ שעות' required dir="auto">
-      <input type="time" value="" name="endHour" ngModel placeholder="שעת סיום" required dir="auto">
-      <input type="time" value="" name="startHour" ngModel placeholder="שעת התחלה" required dir="auto">משעה:
-      <input type="text" value="" name="day" ngModel="date" placeholder="יום" required dir="auto">
-      <input type="date" value="" name="date" ngModel placeholder="תאריך" required dir="auto">
-      <input type="text" value="" name="employer" ngModel placeholder="מעסיק" required dir="auto">
-    </form>
+<div class="table-responsive">
+  <form role="form" (ngSubmit)="add(f)" #f="ngForm">
+   <!-- <button type="button" class="btn btn-info" (click)="onClick()">עבור</button>
+    <select id="soflow-color" value="a" style="float: right" #t (change)="callType(t.value)">
+        <option> בחר חודש</option>
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>-->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th style="text-align: right">עד שעה</th>
+          <th style="text-align: right">משעה</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="add"><button class="btn btn-success" type="submit">הוסף</button></th>
+          <th class="add"><button class="btn btn-info" type="reset">נקה</button></th>
+          <th class="add"><input type="number" value="" name="totalHours" ngModel placeholder='סה"כ שעות' required dir="auto"></th>
+          <th class="add"><input type="time" value="" name="endHour" ngModel placeholder="שעת סיום" required dir="auto"></th>
+          <th class="add"><input type="time" value="" name="startHour" ngModel placeholder="שעת התחלה" required dir="auto"></th>
+          <th class="add"><input type="text" value="" name="day" ngModel placeholder="יום" required dir="auto"></th>
+          <th class="add"><input type="date" value="" name="date" ngModel placeholder="תאריך" required dir="auto"></th>
+          <th class="add"><input type="text" value="" name="employer" ngModel placeholder="מעסיק" required dir="auto"></th>
+          
+        </tr>
+      </tbody>
+      <tbody>
+       
+
+      </tbody>
+    </table>
+  </form>
+</div>
   </div>
 </div>
+
+<h1 style="text-align: right"> דו"ח שעות</h1>
 <div class="row">
   <div class="col-xs-12">
     <app-work-table></app-work-table>
