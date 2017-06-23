@@ -40,7 +40,7 @@ export class UserService {
                                          this.users[i].lastName,
                                          this.users[i].id,
                                          this.users[i].email,
-                                         this.users[i].password,
+                                         this.users[i].uid,
                                          this.users[i].type,
                                          [],
                                          [],
@@ -99,9 +99,9 @@ export class UserService {
     }
 
     removeUser(index: number) {
-        var warning = prompt("משתמש זה יימחק!!! הכנס סיסמא:");
-        if(warning === String(this.auth.adminPass)) {
-        this.auth.deleteUser(String(this.users[index].email), String(this.users[index].password));
+        
+        if(confirm("משתמש זה יימחק!!!")) {
+        this.auth.deleteUser(String(this.users[index].uid));
         firebase.database().ref('users/'+ String(this.users[index].key)).remove();
         this.users.splice(index, 1);
         this.usersChanged.next(this.users.slice());
@@ -123,4 +123,23 @@ export class UserService {
       firebase.database().ref('users/' + String(this.getUsers()[this.getIndex(user)].key) + '/hours/' + String(newh.key) + '/key').set(newh.key);
       this.getUser(this.getIndex(user)).hours.push(newh);
     }
+
+    userAllowed(id: number) {
+        let isAllowed;
+        firebase.database().ref('users')
+        .on('child_added', (snapshot)=> {
+            if(String(snapshot.child('id').val())===String(id))
+                isAllowed = snapshot.key;
+         })
+         return isAllowed;
+    }
+
+    registerUser(key: string, email: string, password: string) {
+        firebase.database().ref('users/' + key + '/email').set(email);
+        this.auth.signupUser(email, password, key);
+        window.alert('הרישום בוצע בהצלחה');
+    }
+        
+        
+    
 }

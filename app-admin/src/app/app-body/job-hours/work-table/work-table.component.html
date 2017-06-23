@@ -30,7 +30,7 @@
             <th class="edit"><input type="time" name="endHour" ngModel={{day.endHour}} dir="auto"></th>
             <th class="edit"><input type="time" name="startHour" ngModel={{day.startHour}} dir="auto"></th>
             <th class="edit"><input type="text" name="day" ngModel={{day.day}} dir="auto"></th>
-            <th class="edit"><input type="date" name="date" ngModel={{day.date}} dir="auto"></th>
+            <th class="edit"><input type="date" name="date" ngModel={{day.date}} dir="auto" required placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date"></th>
             <th class="edit"><input type="text" name="employer" ngModel={{day.employer}} dir="auto"></th>
             <th>{{i+1}}</th>
           </tr>

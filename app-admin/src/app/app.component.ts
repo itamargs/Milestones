@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
-// import * as admin from 'firebase-admin';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,11 +16,6 @@ export class AppComponent implements OnInit {
       databaseURL: "https://milestones-app.firebaseio.com",
       storageBucket: "milestones-app.appspot.com"
     })
-   
-   /*admin.initializeApp({
-      databaseURL: "https://milestones-app.firebaseio.com"
-   })*/
-   
   }
   
 

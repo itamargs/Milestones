@@ -1,0 +1,55 @@
+
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+		<div style="margin: auto; width: 60%">
+      <img src="../../../assets/login.png">
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="text-center panel-title">הרשמה</div>
+      </div>
+      <div class="panel-body">
+        <div class="col-sm-8 col-sm-offset-2">
+          <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			        <input class="form-control" type="text" id="id" name="id" pattern="\d*" maxlength="9" minlength="9" placeholder="תעודת זהות"
+              style="text-align: right" dir="auto" ngModel required>
+			      </div>
+            <br>
+            <div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+			        <input class="form-control" type="email" id="email" name="email" placeholder="כתובת מייל"
+              style="text-align: right" dir="auto" ngModel required>
+			      </div>
+            <br>
+            <div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+			        <input class="form-control" type="email" id="email1" name="email1" placeholder="אשר כתובת מייל"
+              style="text-align: right" dir="auto" ngModel required>
+			      </div>
+            <br>
+            <div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+			        <input class="form-control" type="password" id="password" name="password" minlength="6" style="text-align: right"
+              placeholder="סיסמא" dir="auto" ngModel required>
+			    	</div>
+            <br>
+            <div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+			        <input class="form-control" type="password" id="password1" name="password1" minlength="6" style="text-align: right"
+              placeholder="אשר סיסמא" dir="auto" ngModel required>
+			    	</div>
+            <br>
+            <div *ngIf="error" style="text-align: center; color: red">
+							{{error}}
+			    	</div> 
+            <br>         
+            <button class="btn btn-primary pull-left" type="submit" [disabled]="!f.valid">הירשם <i class="glyphicon glyphicon-log-in"></i></button>
+            <button type="button" class="btn btn-danger pull-right" routerLink="/login">חזור</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

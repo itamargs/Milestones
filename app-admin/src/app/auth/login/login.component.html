@@ -1,7 +1,9 @@
 
 <div class="container">
   <div class="col-sm-6 col-sm-offset-3">
-		<img src="../../../assets/login.png">
+    <div style="margin: auto; width: 60%">
+      <img src="../../../assets/login.png">
+    </div>
     <div class="panel panel-default">
       <div class="panel-heading">
         <div class="text-center panel-title">התחבר</div>
@@ -26,10 +28,12 @@
 			    	</div> 
             <br>         
             <button class="btn btn-primary pull-left" type="submit">התחבר <i class="glyphicon glyphicon-log-in"></i></button>
+            <button class="btn btn-success pull-right" type="submit" routerLink="/register">הרשמה <i class="glyphicon glyphicon-log-in"></i></button>
           </form>
         </div>
       </div>
-      <a routerLink="/reset" style="text-align: center">שכחתי סיסמא</a>
+      <div style="text-align: center">
+      <a routerLink="/reset">שכחתי סיסמא</a></div>
     </div>
   </div>
 </div>

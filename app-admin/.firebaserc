@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "milestones-app"
+    "default": "milestones-app",
+    "milestones-app": "milestones-app"
   }
 }

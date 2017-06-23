@@ -27,6 +27,7 @@ import { MessagesTabComponent } from './app-body/messages-tab/messages-tab.compo
 import { FilesComponent } from './app-body/files/files.component';
 import { MessageComponent } from './app-body/messages-tab/message/message.component';
 import { ResetComponent } from './auth/login/reset/reset.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ResetComponent } from './auth/login/reset/reset.component';
     FilesComponent,
     MessageComponent,
     ResetComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

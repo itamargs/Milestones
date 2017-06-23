@@ -1,3 +1,4 @@
+import { RegisterComponent } from './auth/register/register.component';
 import { ResetComponent } from './auth/login/reset/reset.component';
 import { MessagesTabComponent } from './app-body/messages-tab/messages-tab.component';
 import { AppBodyComponent } from './app-body/app-body.component';
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
     { path: 'hours', component: UsersComponent, canActivate: [AuthGuard]},
     { path: 'user', component:UsersComponent, canActivate: [AuthGuard]},
     { path: 'messages', component:UsersComponent, canActivate: [AuthGuard]},
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

@@ -19,10 +19,6 @@
 			    					</div>
 			    				</div>
 			    			</div>
-
-			    			<div class="form-group">
-			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="אימייל" ngModel required dir="auto"> 
-			    			</div>
 							<div class="row">
 								<div class="col-sm-6" style="text-align: right">
 									<label class="radio"><input type="radio" name="type" value=1 ngModel required>קטיף ישראלי</label>
@@ -30,7 +26,8 @@
 			    				</div>
 								<div class="col-sm-6">
 			    					<div class="form-group">
-			    						<input type="number" name="id" id="id" class="form-control input-sm" placeholder="תעודת זהות" ngModel required dir="auto">
+			    						<input type="text" name="id" id="id" class="form-control input-sm" placeholder="תעודת זהות" ngModel required pattern="\d*" maxlength="9" minlength="9" dir="auto">
+										<h5 style="float:right; color:red;">ת.ז.-9 ספרות</h5>
 			    					</div>
 			    				</div>
 
@@ -43,9 +40,7 @@
                       					<button type="submit" class="btn btn-success btn-block" style="text-align: center" [disabled]="!f.valid">הוסף</button>
 			    					</div>
 			    				</div>
-								
 			    			</div>
-							<h5 *ngIf="error" style="text-align: center; font-weight: bold; color: red">ת.ז. קצרה מדי</h5>
 			    		</form>
 			    	</div>
 	    		</div>

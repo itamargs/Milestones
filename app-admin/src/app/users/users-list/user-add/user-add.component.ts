@@ -30,15 +30,14 @@ export class UserAddComponent implements OnInit {
       const newUser = new User(form.value.first_name,
                               form.value.last_name,
                               form.value.id,
-                              form.value.email,
-                              form.value.id,
+                              '',
+                              '',
                               +form.value.type,
                               null,
                               null,
                               '');
       this.userService.addUser(newUser);
-      this.authService.signupUser(newUser.email, String(newUser.password));
-      this.dataStorageService.setUser(newUser);
+      //this.authService.signupUser(newUser.email, String(newUser.password));
       this.closeAddForm();
     }
   }

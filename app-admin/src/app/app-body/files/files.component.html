@@ -1,1 +1,7 @@
-<input type="file" (change)="fileEvent($event)">
+<div *ngIf="allow()">
+    <input type="file" (change)="fileEvent($event)">
+</div>
+
+<div *ngIf="!allow()">
+    <h3 style="text-align: right">אינך רשאי להעלות מסמכים</h3>
+</div>

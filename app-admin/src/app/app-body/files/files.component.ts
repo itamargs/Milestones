@@ -1,3 +1,4 @@
+import { AppBodyComponent } from './../app-body.component';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 @Component({
@@ -6,11 +7,15 @@ import * as firebase from 'firebase';
   styleUrls: ['./files.component.css']
 })
 export class FilesComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(private appBody: AppBodyComponent) { }
 
   ngOnInit() {
-     
+     console.log(this.allow());
+  }
+
+  allow() {
+    return String(this.appBody.user.type)==='0';
   }
   fileEvent(fileInput: any){
     let file = fileInput.target.files[0];
