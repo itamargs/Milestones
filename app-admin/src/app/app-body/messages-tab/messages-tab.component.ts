@@ -16,6 +16,7 @@ export class MessagesTabComponent implements OnInit {
     for(var i=0; i<this.msgList.length; i++)
       if(!this.msgList[i].status)
         this.index++;
+
   }
 
 }

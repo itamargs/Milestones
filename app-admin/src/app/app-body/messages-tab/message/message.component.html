@@ -3,10 +3,10 @@
     <div class="row panel-heading">
       <a style="cursor: pointer" (click)="openMsg()">
         <div class="col-xs-4" style="text-align: left">
-          {{msg.date}}
+          {{msg.date}} 
         </div>
         <div class="col-xs-8" style="text-align: right">
-          {{msg.title}}
+          {{msg.title}} <span class="glyphicon glyphicon-eye-close" *ngIf="!msg.status"></span>
         </div>
       </a>
     </div>
