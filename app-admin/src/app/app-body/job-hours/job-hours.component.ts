@@ -17,7 +17,7 @@ export class JobHoursComponent implements OnInit {
   }
 
   add(form: NgForm){
-    console.log(form.value.date);
+    
     let dateLen = form.value.date.length;
     let newDate = form.value.date.slice(dateLen-2, dateLen) + '/'
                   + form.value.date.slice(dateLen-5, dateLen-3) + '/'

@@ -43,17 +43,12 @@ days = [];
 })
     }
   )
-    console.log(this.days);
+  
   }
 
-  callType(value){
-    console.log(value);
-    
-  }
 
   onEdit(day: any) {
     this.edit = day;
-    console.log(this.edit);
   }
 
   onDelete(day: any){
@@ -67,7 +62,7 @@ days = [];
   onSubmit(form: NgForm) {
     let dateLen = form.value.date.length;
     let newDate =form.value.date;
-    console.log()
+    
     if(String(form.value.date[2])!=='/') {
       newDate = form.value.date.slice(dateLen-2, dateLen) + '/'
                   + form.value.date.slice(dateLen-5, dateLen-3) + '/'
