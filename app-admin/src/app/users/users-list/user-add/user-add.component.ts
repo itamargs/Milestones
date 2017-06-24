@@ -1,6 +1,6 @@
 import { Hours } from './../../hours.model';
 import { AuthService } from './../../../auth/auth.service';
-import { DataStorageService } from 'app/shared/data-storage.service';
+
 import { UserService } from './../../user.service';
 import { User } from './../../user.model';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +13,7 @@ import { NgForm } from "@angular/forms";
 })
 export class UserAddComponent implements OnInit {
   error = false;
-  constructor(private userService: UserService, private authService: AuthService, private dataStorageService: DataStorageService) { }
+  constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
     
@@ -37,7 +37,6 @@ export class UserAddComponent implements OnInit {
                               null,
                               '');
       this.userService.addUser(newUser);
-      //this.authService.signupUser(newUser.email, String(newUser.password));
       this.closeAddForm();
     }
   }

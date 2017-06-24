@@ -12,13 +12,7 @@ export class UserDetailsComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    //this.userService.getData();
-    /*var q = firebase.database().ref('users/' + String(this.user.key) + '/hours');
-    q.on('child_added' , (snapshot) => {
-      console.log(this.user.hours.push(snapshot.val()));
-    });*/
-    //console.log(firebase.database().ref('users/' + String(this.user.key) + '/hours').on('value' ,(snapshot)=>{this.user.hours.push(snapshot.val())}));
-    //console.log(this.user.hours.length);
+   
   }
 
 }

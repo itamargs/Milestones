@@ -1,8 +1,6 @@
-import { Request, Http, RequestOptions, RequestMethod } from '@angular/http';
 import { Messages } from './../messages.model';
 import { Hours } from './../hours.model';
 
-import { DataStorageService } from './../../shared/data-storage.service';
 import { FilterListPipe } from './filter-list.pipe';
 import { UserService } from './../user.service';
 import { User } from './../user.model';
@@ -20,9 +18,7 @@ export class UsersListComponent implements OnInit {
   @Input() type: any;
   deleteSelected = false;
   constructor(private userService: UserService,
-              private router: Router,
-              private dataStorageService: DataStorageService,
-              private http: Http) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.userService.userSelected.subscribe(
@@ -30,9 +26,6 @@ export class UsersListComponent implements OnInit {
         this.selectedUser = user;
       }
     )
-    //this.userService.getData();
-    //this.dataStorageService.getd();
-    //this.dataStorageService.storeUsers(this.users);
     this.users = this.filter(this.type);
     this.userService.usersChanged.subscribe(
       (users: User[]) => {
@@ -75,30 +68,13 @@ export class UsersListComponent implements OnInit {
 
 
   openAddWindow() {
-    /*const options = new RequestOptions({
-      method: RequestMethod.Post
-    });
-    const req = new Request(options.merge({
-      url: "https://us-central1-milestones-app.cloudfunctions.net/accountcleanup?key=19b8242abf28bf7e42bc8f38d15f8787b0ed022b&uid=3Ps8HNdjOahhs0KaSSy2eP4pIci1"
-    }));
-    let uid = String('ceQ0l04hw5cTeZU4o3hPJIocbxJ3');
-    console.log('req.url:', req.url);
-    let xml = new XMLHttpRequest();
-    xml.open('Get',"https://us-central1-milestones-app.cloudfunctions.net/accountcleanup?key=19b8242abf28bf7e42bc8f38d15f8787b0ed022b&uid=" + uid) ;
-    xml.send(null);
-    return xml.responseText;*/
-   
     this.userService.addSelected.emit();
     this.onUserSelected(null);
   }
 
   onDeleteUser(user: User) {
-    
-      
-    
       this.userService.removeUser(this.userService.getIndex(user));
       this.onUserSelected(null);
-      this.dataStorageService.setUser(user);
     
   }
 

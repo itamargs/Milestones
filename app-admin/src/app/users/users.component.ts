@@ -22,7 +22,7 @@ export class UsersComponent implements OnInit {
   constructor(private userService: UserService,
               private router: ActivatedRoute,
               private authService: AuthService) { 
-                console.log(this.isAdmin);
+                
               }
 
   ngOnInit() {
@@ -33,9 +33,9 @@ export class UsersComponent implements OnInit {
             if(this.userService.findUser(this.userService.getUser(i))){
               this.selectedUser = this.userService.getUser(i);
               break;}
-                  // this.userService.userSelected.emit(this.userService.getUser(0));
+                  
         }
-    //this.userService.getData();
+    
     this.userService.userSelected.subscribe(
       (user: User) => {
         this.selectedUser = user;

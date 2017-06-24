@@ -28,7 +28,6 @@ export class UserMessageComponent implements OnInit {
     if(this.error == null) {
       this.userText += user.firstName + ' ' + user.lastName + ', ';
       this.userSelected.push(user);
-      console.log(this.userSelected[0].firstName);
     }
   }
 
@@ -48,13 +47,11 @@ export class UserMessageComponent implements OnInit {
       this.userSelected = [];
       this.userText = '';
     }
-    console.log(this.type);
   }
 
   onReset() {
     this.userSelected = [];
     this.userText = '';
-    console.log(this.userSelected);
   }
 
 }

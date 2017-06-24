@@ -26,9 +26,6 @@ export class MessageFormComponent implements OnInit {
     if(new Date().getMinutes() < 10)
       newDate += '0';
     newDate += String(new Date().getMinutes());
-    console.log(newDate);
-    console.log(form.value.title);
-    console.log(form.value.body);
     this.userService.sendUserMessage(this.users, form.value.title, form.value.body, newDate);
     form.reset();
     window.alert('הודעה נשלחה בהצלחה!')
