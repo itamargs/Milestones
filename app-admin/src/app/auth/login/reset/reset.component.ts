@@ -16,7 +16,7 @@ export class ResetComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.authService.resetPass(form.value.email);
-    console.log(form.value.email);
+  
   }
 
 }

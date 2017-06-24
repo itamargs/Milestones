@@ -1,6 +1,5 @@
 import { AuthGuard } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
-import { DataStorageService } from 'app/shared/data-storage.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './users/user.service';
@@ -15,7 +14,6 @@ import { UsersComponent } from './users/users.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserDetailsComponent } from './users/users-list/user-details/user-details.component';
 import { UserAddComponent } from './users/users-list/user-add/user-add.component';
-import { DropdownDirective } from 'app/dropdown.directive';
 import { FilterListPipe } from './users/users-list/filter-list.pipe';
 import { LoginComponent } from './auth/login/login.component';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
@@ -41,7 +39,6 @@ import { FilterPipe } from './users/users-list/user-message/filter.pipe';
     UsersListComponent,
     UserDetailsComponent,
     UserAddComponent,
-    DropdownDirective,
     FilterListPipe,
     LoginComponent,
     UserNavbarComponent,
@@ -64,7 +61,7 @@ import { FilterPipe } from './users/users-list/user-message/filter.pipe';
     HttpModule,
     AppRoutingModule,
   ],
-  providers: [UserService, DataStorageService, AuthService, AuthGuard],
+  providers: [UserService,  AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
