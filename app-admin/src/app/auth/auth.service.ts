@@ -1,4 +1,3 @@
-import { User } from './../users/user.model';
 
 import { UserService } from './../users/user.service';
 import { Http } from '@angular/http';
@@ -9,7 +8,7 @@ import * as firebase from 'firebase';
 export class AuthService{
     token: string;
     error: string;
-    user: User;
+    user: string;
     admin: string;
     uid: string;
     constructor(private router: Router, private http: Http){
@@ -23,8 +22,7 @@ export class AuthService{
             response => {firebase.database().ref('users/' + String(key) + '/uid').set(firebase.auth().currentUser.uid)}
         )
         .catch(
-            error => {console.log(firebase.auth().currentUser.uid)
-                this.error = error.message}
+            error => window.alert('Error')
             
         )
         
@@ -33,23 +31,18 @@ export class AuthService{
     signinUser(email: string, password: string) {
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(
-            response => {firebase.database().ref('users')
-                        .on('child_added', (snapshot)=> {
-                            if(String(snapshot.child('uid').val())===String(firebase.auth().currentUser.uid))
-                                this.user = snapshot.val();
-                        });
+            response => {
                 
-              firebase.auth().currentUser.getToken()
+              firebase.auth().currentUser.getIdToken()
                 .then(
                      (token: string) => this.token = token
                 )
-                this.router.navigate(['/main']);
-                console.log(firebase.auth().currentUser.uid)    
+                this.router.navigate(['/main']);  
             }
             
         )
         .catch(
-            error => this.error=error.message
+            error => window.alert('אימייל או סיסמא אינם נכונים. נסה שוב')
         )
     }
 
@@ -64,7 +57,7 @@ export class AuthService{
     }
 
     getToken() {
-        firebase.auth().currentUser.getToken()
+        firebase.auth().currentUser.getIdToken()
         .then(
             (token: string) => 
                 this.token = token
@@ -73,7 +66,6 @@ export class AuthService{
     }
 
     isAuth() {
-        console.log(firebase.auth().currentUser);
         if(this.token == null)
             this.router.navigate(['/login']);
         return this.token != null;
@@ -92,11 +84,24 @@ export class AuthService{
     }
 
     resetPass(email: string) {
-        firebase.auth().sendPasswordResetEmail(String(email)).then(
-            error=>console.log(error)
+        firebase.auth().sendPasswordResetEmail(String(email))
+        .then(
+            response => window.alert('איפוס סיסמא יישלח ברגעים הקרובים לכתובת המייל שלך')
+        )
+        .catch(
+            error => window.alert('שגיאה! אנא בדוק שהזנת את כתובת המייל שלך שרשומה במערכת')
         )
     }
 
+    changePass(newPass: string) {
+        firebase.auth().currentUser.updatePassword(newPass)
+        .then(
+            response => window.alert('הסיסמא שונתה בהצלחה')
+        )
+        .catch(
+            error => window.alert('סיסמא לא שונתה, נסה שוב')
+        )
+    }
 
 
 }
