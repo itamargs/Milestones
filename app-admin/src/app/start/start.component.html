@@ -1,3 +1,46 @@
 <app-users></app-users>
-<h1 style="text-align: right">ברוכים הבאים</h1>
-{{user}}
+<h1 style="text-align: center" dir="auto">שלום {{user}}</h1>
+<br>
+<h3 style="text-align: center">אפליקציה זו נועדה לעזור לך לעקוב אחר שעות העבודה שלך</h3>
+<br>
+<h3 style="text-align: center">בנוסף תוכל/י לקבל הודעות ממנהל הפרוייקט</h3>
+<br>
+<h5 style="text-align: center">בהצלחה</h5>
+<br>
+
+<div style="text-align: center" *ngIf="!changePass">לשינוי סיסמא 
+    <a (click)="changeSelected()" style="cursor: pointer">לחץ כאן</a>
+</div>
+<div class="container" *ngIf="changePass">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          
+        <div class="text-center panel-title">שינוי סיסמא</div>
+      </div>
+      <div class="panel-body">
+        <div class="col-sm-8 col-sm-offset-2">
+          <form class="form-horizontal" (ngSubmit)="onChange(f)" #f="ngForm">
+            <div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+			        <input class="form-control" type="password" id="password" name="password" style="text-align: right"
+              placeholder="סיסמא" minlength="6" ngModel required>
+			    	</div>
+            <br>
+            <div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+			        <input class="form-control" type="password" id="password1" name="password1" style="text-align: right"
+              placeholder="אשר סיסמא" minlength="6" ngModel required>
+			    	</div>
+            <br>
+            <div *ngIf="error" style="text-align: center; color: red">
+							{{error}}
+			    	</div> 
+            <br>         
+            <button class="btn btn-primary pull-left" type="submit">אשר <span class="glyphicon glyphicon-ok"></span></button>
+            <button class="btn btn-danger pull-right" (click)="changeSelected()">בטל  <span class="glyphicon glyphicon-remove"></span></button>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
