@@ -65,14 +65,22 @@ days = [];
   }
 
   onSubmit(form: NgForm) {
+    let dateLen = form.value.date.length;
+    let newDate =form.value.date;
+    console.log()
+    if(String(form.value.date[2])!=='/') {
+      newDate = form.value.date.slice(dateLen-2, dateLen) + '/'
+                  + form.value.date.slice(dateLen-5, dateLen-3) + '/'
+                  + form.value.date.slice(0, dateLen-6);
+    }
     
-    this.edit.date = form.value.date;
+    this.edit.date = newDate;
     this.edit.day = form.value.day;
     this.edit.employer = form.value.employer;
     this.edit.endHour = form.value.endHour;
     this.edit.startHour = form.value.startHour;
     this.edit.totalHours = form.value.totalHours;
-    firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/date').set(form.value.date);
+    firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/date').set(newDate);
     firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/day').set(form.value.day);
     firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/employer').set(form.value.employer);
     firebase.database().ref('users/' + String(this.appBody.user.key) + '/hours/' + String(this.edit.key) + '/endHour').set(form.value.endHour);

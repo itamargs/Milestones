@@ -23,7 +23,7 @@ export class JobHoursComponent implements OnInit {
                   + form.value.date.slice(dateLen-5, dateLen-3) + '/'
                   + form.value.date.slice(0, dateLen-6);
     
-    let newDay = new Hours(newDate, form.value.day, form.value.employer, form.value.startHour, form.value.endHour, form.value.totalHours,0,'');
+    let newDay = new Hours(newDate, form.value.day, form.value.employer, form.value.startHour, form.value.endHour, form.value.totalHours,'');
     newDay.key = firebase.database().ref('users/' + String(this.appBody.user.key)).child('hours').push(newDay).key;
     firebase.database().ref('/users/' + String(this.appBody.user.key) +'/hours/' + newDay.key + '/key').set(newDay.key);
     this.appBody.user.hours.push(newDay);
