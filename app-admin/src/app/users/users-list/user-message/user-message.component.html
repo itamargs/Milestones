@@ -1,4 +1,55 @@
 <app-admin-navbar></app-admin-navbar>
-<p>
-  user-message works!
-</p>
+<div class="container">
+  <div class="row">
+  <div class="col-md-3 col-md-push-9">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <button class="btn btn-success" type="submit">בחר</button>
+      <select class="minimal" name="type" style="text-align: right" ngModel>
+        <option value="2">משתמש</option>
+        <option value="1">חברי קטיף ישראלי</option>
+        <option value="0">חברי עמק תפארת</option>
+      </select>
+    </form>
+    <br>  
+    <div class="inner-addon right-addon">
+      <span class="glyphicon glyphicon-search"></span>
+        <input type="text" class="form-control" placeholder="חפש משתמש" [(ngModel)]="filtered" style="float: right; text-align: right" dir="auto">
+    </div>
+    <br><h5 style="text-align: right; color: red">{{error}}</h5>
+    
+    <div class="myUsers">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+              
+              
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of (users | filter:filtered)">
+            <th style="text-align: right"><button class="user" (click)="selectUser(user)" [disabled]="type!=='2'">{{user.firstName}} {{user.lastName}} - {{user.id}}</button></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  
+  <div class="col-md-9 col-md-pull-3">
+    
+      <div class="row">
+      <button class="btn btn-info" type="reset" (click)="onReset()" [disabled]="type==='1' || type==='0'">נקה</button>
+      <input class="form-control" type="text" value="{{userText}}" placeholder=":שלח אל"
+        style="width: 450px; float:right; text-align: right" dir="auto" disabled>
+      </div>
+      <br><br>
+      <app-message-form
+      [users]="userSelected"></app-message-form>
+  </div>
+  </div>
+
+  <div class="row">
+  </div>
+</div>
+
+

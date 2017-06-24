@@ -1,0 +1,23 @@
+<form role="form" (ngSubmit)="onSend(f)" #f="ngForm">
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                <input class="form-control" type="text" name="title" dir="auto" style="text-align: right" placeholder="כותרת" ngModel required>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>
+                <textarea class="form-control" name="body" rows="6" cols="100%" style="resize: none; text-align: right" dir="auto" placeholder="גוף ההודעה" ngModel required></textarea>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <button class="btn btn-success" type="submit" [disabled]="!f.valid">שלח</button>
+      </div>
+    </form>
