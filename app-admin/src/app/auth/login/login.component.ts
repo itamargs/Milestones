@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log(new Date().getDate() + '/' + (new Date().getMonth()+1) + '/' + new Date().getFullYear() + ' | ' + new Date().getHours() + ':' + new Date().getMinutes());
+   
   }
 
   onLogin(form: NgForm) {
