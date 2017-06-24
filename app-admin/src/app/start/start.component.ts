@@ -13,6 +13,7 @@ export class StartComponent implements OnInit {
   user: string;
   range: string;
   changePass = false;
+  isAdmin = false;
   constructor(private authService: AuthService) { }
   error: string;
   ngOnInit() {
@@ -20,9 +21,8 @@ export class StartComponent implements OnInit {
       (snapshot) => {
         if(String(snapshot.child('uid').val())===String(firebase.auth().currentUser.uid))
          this.user = snapshot.child('firstName').val();
-        snapshot.child('hours').forEach((dataSnap)=>this.range = dataSnap.val())
-        console.log(this.range);
       })
+      this.isAdmin = this.authService.isAdmin();
   }
 
   changeSelected() {

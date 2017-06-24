@@ -1,11 +1,26 @@
 <app-users></app-users>
-<h1 style="text-align: center" dir="auto">שלום {{user}}</h1>
-<br>
-<h3 style="text-align: center">אפליקציה זו נועדה לעזור לך לעקוב אחר שעות העבודה שלך</h3>
-<br>
-<h3 style="text-align: center">בנוסף תוכל/י לקבל הודעות ממנהל הפרוייקט</h3>
-<br>
-<h5 style="text-align: center">בהצלחה</h5>
+<div *ngIf="!isAdmin">
+  <h1 style="text-align: center" dir="auto">שלום {{user}}</h1>
+  <br>
+  <h3 style="text-align: center">אפליקציה זו נועדה לעזור לך לעקוב אחר שעות העבודה שלך</h3>
+  <br>
+  <h3 style="text-align: center">בנוסף תוכל/י לקבל הודעות ממנהל הפרוייקט</h3>
+  <br>
+  <h5 style="text-align: center">בהצלחה</h5>
+</div>
+
+<div *ngIf="isAdmin">
+  <h1 style="text-align: center" dir="auto">שלום מנהל</h1>
+  <br>
+  <h3 style="text-align: center">אפליקציה זו נועדה לעזור לך לבדוק את התקדמותם של חניכי הפרוייקט</h3>
+  <br>
+  <h3 style="text-align: center">בנוסף, תוכל לשלוח הודעות עבור משתמשי האפליקציה </h3>
+  <br>
+  <h4 style="text-align: center; color: red; font-weight: bold">על מנת שחניכי הפרוייקט יוכלו להירשם לאפליקציה אנא וודא כי הוספת אותם למערכת </h4>
+  <br>
+  <h5 style="text-align: center">בהצלחה</h5>
+</div>
+
 <br>
 
 <div style="text-align: center" *ngIf="!changePass">לשינוי סיסמא 
