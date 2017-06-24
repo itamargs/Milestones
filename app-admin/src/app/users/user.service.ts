@@ -12,6 +12,7 @@ export class UserService {
     usersChanged = new EventEmitter<User[]>();
     userSelected = new EventEmitter<User>(); 
     addSelected = new EventEmitter();
+    msgSelected = new EventEmitter();
     chartUser = new EventEmitter<User>();
     constructor(private auth: AuthService, private http: Http) {
        this.getData();
@@ -56,7 +57,6 @@ export class UserService {
                                                                  this.users[i].hours[j].startHour,
                                                                  this.users[i].hours[j].endHour,
                                                                  this.users[i].hours[j].totalHours,
-                                                                 this.users[i].hours[j].totalDays,
                                                                  this.users[i].hours[j].key)}
                 }
                 );
@@ -138,6 +138,14 @@ export class UserService {
         firebase.database().ref('users/' + key + '/email').set(email);
         this.auth.signupUser(email, password, key);
         window.alert('הרישום בוצע בהצלחה');
+    }
+
+    sendUserMessage(users: User[], title:string, body:string, date:string) {
+        let newMsg = new Messages(title, date, body, '', false);
+        for(var i=0; i<users.length; i++) {
+            newMsg.key = String(firebase.database().ref('users/' + String(users[i].key) + '/messages').push(newMsg).key);
+            firebase.database().ref('users/' + String(users[i].key) + '/messages/' + String(newMsg.key) + '/key').set(newMsg.key);
+        }
     }
         
         

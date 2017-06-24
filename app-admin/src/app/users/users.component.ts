@@ -14,6 +14,7 @@ import { Observable } from "rxjs/Observable";
 export class UsersComponent implements OnInit {
   selectedUser: User;
   selectedAdd = false;
+  selectedMsg = false;
   type:any;
   @Input() user: User;
   isAdmin = this.authService.isAdmin();
@@ -43,6 +44,12 @@ export class UsersComponent implements OnInit {
     this.userService.addSelected.subscribe(
       () => {
         this.selectedAdd = !this.selectedAdd;
+      }
+    )
+    this.userService.msgSelected.subscribe(
+      () => {
+        
+        this.selectedMsg = !this.selectedMsg;
       }
     )
     this.type = this.router.routeConfig.path;

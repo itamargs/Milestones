@@ -111,20 +111,11 @@ export class UsersListComponent implements OnInit {
   }
 
   sendMessage(user: User) {
-    let newMessage = new Messages('welcome',String(new Date().getDate() + '/' + (new Date().getMonth()+1) + '/' + new Date().getFullYear() + ' | ' + new Date().getHours() + ':' + new Date().getMinutes()),'good day', '', false);
-    let newKey = firebase.database().ref('users/' + String(user.key) + '/messages').push(newMessage).key;
-    firebase.database().ref('users/' + String(user.key) + '/messages/' + String(newKey) + '/key').set(newKey);
+    this.onUserSelected(user);
+    this.userService.msgSelected.emit();
+    
   }
     
-    oo(user: User) {
-      //var newh = new Hours(1/1/12,'אfffffffffffffff','משה','7:00','17:00',10,1,'');
-      //this.userService.ff(newh, user);
-      //console.log(String(this.userService.getUsers()[this.userService.getIndex(user)].key));
-      //var a = firebase.database().ref('users/' + String(this.userService.getUsers()[this.userService.getIndex(user)].key) + '/hours/0');
-      //a.push(newh);
-      
-    }
-
     onChartUser(user: User) {
      let limit;
       if(user.hours){
@@ -135,7 +126,7 @@ export class UsersListComponent implements OnInit {
         limit = (limit/250)*100;
       }
       if(user.type===0)
-        limit = (user.hours.length/150)*100;
+        limit = (user.hours.length/100)*100;
         
       limit = parseFloat(limit).toFixed(2);
       }

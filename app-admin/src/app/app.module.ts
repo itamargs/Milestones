@@ -29,6 +29,8 @@ import { MessageComponent } from './app-body/messages-tab/message/message.compon
 import { ResetComponent } from './auth/login/reset/reset.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { UserMessageComponent } from './users/users-list/user-message/user-message.component';
+import { MessageFormComponent } from './users/users-list/user-message/message-form/message-form.component';
+import { FilterPipe } from './users/users-list/user-message/filter.pipe';
 
 
 @NgModule({
@@ -53,6 +55,8 @@ import { UserMessageComponent } from './users/users-list/user-message/user-messa
     ResetComponent,
     RegisterComponent,
     UserMessageComponent,
+    MessageFormComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
