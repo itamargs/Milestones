@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterListPipe implements PipeTransform {
 
   pageType: number;
-  transform(value: any, args: any, filtered: string, users: any): any {console.log(users);
+  transform(value: any, args: any, filtered: string, users: any): any {
     if(value.length===0 || !filtered)
       return value;
     const filterArray = [];
